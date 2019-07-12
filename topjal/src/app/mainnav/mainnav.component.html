@@ -1,0 +1,92 @@
+<div [ngClass]="selectedTheme">
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav   #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : ''"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false && !(isHandset$ | async) === false">
+    <mat-toolbar>Topjal Inc.</mat-toolbar>
+    <mat-nav-list color="accent">
+        <mat-divider ></mat-divider>
+        <a mat-menu-item routerLink="/"><mat-icon color="accent">dialpad</mat-icon><span>Topjal Inc.</span></a>
+        <mat-divider ></mat-divider>
+        <a mat-menu-item ss routerLink="/tutorials"><mat-icon color="accent">code</mat-icon><span>Tutorials</span></a>
+        <mat-divider ></mat-divider>
+        <a mat-menu-item  routerLink="/projects"><mat-icon color="accent">settings_ethernet</mat-icon><span>Projects</span></a>
+        <mat-divider ></mat-divider>
+         <a mat-menu-item routerLink="/libraries"><mat-icon color="accent">local_library</mat-icon><span>Library</span></a>
+        <mat-divider ></mat-divider>
+        <a mat-menu-item  routerLink="/signup"><mat-icon color="accent">person_add</mat-icon><span>Sign Up</span></a>
+        <mat-divider ></mat-divider>
+        <a mat-menu-item  routerLink="/signin"><mat-icon color="accent">exit_to_app</mat-icon><span>Sign In</span></a>
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="mainToolbar custom-navbar-header"> 
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><a mat-menu-item class="cus-mat-menu-item" routerLink="/">Topjal Inc.</a></span>
+     
+      
+      <a  *ngIf="(isHandset$ | async) === false" mat-menu-item class="cus-mat-menu-item" routerLink="/tutorials"><mat-icon class="cus-mat-menu-item">code</mat-icon><span>Tutorials</span></a>
+      <a  *ngIf="(isHandset$ | async) === false" mat-menu-item class="cus-mat-menu-item" routerLink="/projects"><mat-icon class="cus-mat-menu-item">settings_ethernet</mat-icon><span>Projects</span></a>
+      <a  *ngIf="(isHandset$ | async) === false" mat-menu-item class="cus-mat-menu-item" routerLink="/libraries"><mat-icon class="cus-mat-menu-item">local_library</mat-icon><span>Library</span></a>
+      <a  *ngIf="(isHandset$ | async) === false" mat-menu-item class="cus-mat-menu-item" routerLink="/signup"><mat-icon class="cus-mat-menu-item">person_add</mat-icon><span>Sign Up</span></a>
+      <a  *ngIf="(isHandset$ | async) === false" mat-menu-item class="cus-mat-menu-item" routerLink="/signin"><mat-icon class="cus-mat-menu-item">exit_to_app</mat-icon><span>Sign In</span></a>
+   
+
+
+
+<span class="toolbar-spacer"></span>
+
+<!--Right Nav Area start-->
+<button mat-icon-button  aria-label="Example icon-button with a menu">
+  <mat-icon>search</mat-icon>
+</button>
+
+<!--special button-->	
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>format_color_fill</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+
+      <div class="btn-wrapper">
+        <button mat-mini-fab class="btn btn-default" (click)="selectedTheme='default'"></button>
+        <button mat-mini-fab class="btn btn-purple" (click)="selectedTheme='purple'"></button>
+      </div>
+	   <div class="btn-wrapper">
+        <button mat-mini-fab class="btn btn-pink" (click)="selectedTheme='pink'"></button>
+        <button mat-mini-fab class="btn btn-deep-orange" (click)="selectedTheme='deep-orange'"></button>
+      </div>
+ 
+</mat-menu>
+
+	<!--special button-->
+	
+  
+  <button class="github mat-button-wrapper" mat-icon-button>
+      <a href="https://github.com/springapidev/" target="_blank">   <img _ngcontent-lih-c1="" alt="angular" class="docs-angular-logo" 
+         src="https://material.angular.io/assets/img/homepage/github-circle-white-transparent.svg">
+          
+       </a>
+       </button>
+       <!-- <button class="toolbar-avatar"  mat-mini-fab  color="primary"> </button>
+        -->
+       <!-- right nav area end  -->
+
+    </mat-toolbar>
+    
+    <!-- Add Content Here -->
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

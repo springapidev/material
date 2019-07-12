@@ -1,0 +1,39 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+//////////git icon.........
+.github{
+ 
+margin: 0 4px 3px 0;
+vertical-align: middle;
+}
+
+/////////top nav beatify
+.custom-navbar-header{
+ 
+}
+
+////////override header toolbar height
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 55px!important;
+}
+
+.cus-mat-menu-item{
+  color:white;
+
+}
